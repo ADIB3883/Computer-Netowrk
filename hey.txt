@@ -1,0 +1,54 @@
+///Config the router 
+///RIP CLI
+
+Router-:X
+
+'configure terminal' or 'conf t'
+router rip
+version 2 
+network 192.168.10.0
+network 192.168.40.0 ///adjacent networks
+.
+.
+.
+no auto-summary
+exit
+
+
+
+///To show router table 
+show ip route
+
+
+
+
+///EIGRP CLI
+
+conf t
+router eigrp 10 ///autonomous number
+network 192.168.10.0 0.0.0.0.255 ///wild card mask
+.
+.
+.
+no auto summary
+.>Config->Settings->NVRAM->SAVE 
+end
+
+
+
+///OSPF CLI
+
+conf t
+router ospf 10/// process id
+network 192.168.80.0 0.0.0.255 area 0 ///area id
+network 192.168.40.0 0.0.0.255 area 0 ///area id
+network 192.168.50.0 0.0.0.255 area 0 ///area id
+network 192.168.20.0 0.0.0.255 area 0 ///area id
+
+
+///Question ashte pare multi area diye
+///Tokhon
+network 192.168.80.0 0.0.0.255 area 0 ///area id
+network 192.168.40.0 0.0.0.255 area 1 ///area id
+network 192.168.50.0 0.0.0.255 area 0 ///area id
+network 192.168.20.0 0.0.0.255 area 1 ///area id
