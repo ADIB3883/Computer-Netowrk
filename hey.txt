@@ -1,7 +1,17 @@
-///Config the router 
+
+
+///DHCP config
+//Do for every router
+ip dhcp pool lan1
+network 192.168.1.0 255.255.255.0
+default-router 192.168.1.1
+
+
+
+
 ///RIP CLI
 
-Router-:X
+//Do for every router
 
 'configure terminal' or 'conf t'
 router rip
@@ -23,6 +33,7 @@ show ip route
 
 
 ///EIGRP CLI
+//Do for every router
 
 conf t
 router eigrp 10 ///autonomous number
@@ -37,6 +48,7 @@ end
 
 
 ///OSPF CLI
+//Do for every router
 
 conf t
 router ospf 10/// process id
