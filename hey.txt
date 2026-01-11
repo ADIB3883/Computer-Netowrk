@@ -2,9 +2,14 @@
 
 ///DHCP config
 //Do for every router
+///optional line
+ip dhcp excluded-address 192.168.60.1 192.168.60.50
+///must line
 ip dhcp pool lan1
-network 192.168.1.0 255.255.255.0
-default-router 192.168.1.1
+network 192.168.60.0 255.255.255.0
+///optional line
+default-router 192.168.60.1
+dns server 23.23.23.23
 
 
 
