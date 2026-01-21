@@ -1,0 +1,60 @@
+Router> en
+Router# configure terminal
+
+! Exclude router interface from DHCP
+Router(config)# ip dhcp excluded-address 192.168.0.1 192.168.0.20
+
+! Create DHCP pool
+Router(config)# ip dhcp pool LAN
+Router(dhcp-config)# network 192.168.0.0 255.255.254.0
+Router(dhcp-config)# default-router 192.168.0.1
+Router(dhcp-config)# exit
+
+
+! =========================
+! 2️⃣ RIP v2 Configuration
+! =========================
+Router(config)# router rip
+Router(config-router)# version 2
+Router(config-router)# no auto-summary
+Router(config-router)# network 192.168.0.0
+Router(config-router)# exit
+
+! Verification
+show ip route rip
+show ip protocols
+
+! Delete RIP (if needed)
+no router rip
+
+! =========================
+! 3️⃣ EIGRP Configuration
+! =========================
+Router(config)# router eigrp 10
+Router(config-router)# no auto-summary
+Router(config-router)# network 192.168.0.0 0.0.1.255
+Router(config-router)# exit
+
+! Verification
+show ip route eigrp
+show ip protocols
+
+! Delete EIGRP (if needed)
+no router eigrp 10
+
+! =========================
+! 4️⃣ OSPF Configuration
+! =========================
+Router(config)# router ospf 1
+Router(config-router)# network 192.168.0.0 0.0.1.255 area 0
+Router(config-router)# exit
+
+! Verification
+show ip route ospf
+show ip protocols
+
+! Delete OSPF (if needed)
+no router ospf 1
+
+
+---Credit Tasnim Hasan Taz

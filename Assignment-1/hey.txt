@@ -29,6 +29,13 @@ network 192.168.40.0 ///adjacent networks
 no auto-summary
 exit
 
+///easier way
+'configure terminal' or 'conf t'
+router rip
+version 2 
+network 192.168.0.0(Original Network)
+no auto-summary
+
 
 
 ///To show router table 
